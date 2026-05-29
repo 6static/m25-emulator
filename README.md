@@ -24,7 +24,7 @@ real wheel.
 | File | Responsibility |
 |------|----------------|
 | `config.h` | All compile-time settings (name, key, pins, timeouts, feature flags) |
-| `nvs_config.h` | `WheelRuntimeConfig` -- load/save wheel side from ESP32 NVS |
+| `nvs_config.h` | `WheelRuntimeConfig`: load/save wheel side from ESP32 NVS |
 | `state.h` | `WheelState` struct and pure mutation helpers |
 | `protocol.h` | CRC-16, byte stuffing/unstuffing, frame encode/decode |
 | `crypto.h` | AES-128 ECB/CBC wrappers (mbedtls) |
@@ -110,7 +110,7 @@ transport the same way and sends ACKs back on whichever is connected.
 ### RFCOMM channel note (M25v1)
 
 M25v1 wheels advertise on RFCOMM channel 6 (confirmed). `BluetoothSerial`
-assigns channels automatically -- check the serial monitor at startup before
+assigns channels automatically. Check the serial monitor at startup before
 connecting:
 
 ```
@@ -170,7 +170,7 @@ debug none       Disable all
 
 ## Hardware wiring
 
-Battery is fully simulated -- use the CLI to read or set it. For a bench
+Battery is fully simulated. Use the CLI to read or set it. For a bench
 setup, two signals are worth wiring:
 
 | Signal | Pin | Notes |
@@ -190,3 +190,12 @@ Optional:
 | LED green | 27 | full battery threshold |
 
 All pins are set in `config.h`.
+
+---
+
+## Related
+
+| Repo | Role |
+|------|------|
+| [MPZ-00/m25-remote](https://github.com/MPZ-00/m25-remote) | ESP32 BLE remote controller (sends commands to this emulator) |
+| [MPZ-00/m5squared](https://github.com/MPZ-00/m5squared) | Python toolkit for protocol analysis, GUI, and code generators |
