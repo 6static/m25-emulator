@@ -1,0 +1,31 @@
+# ---------------------------------------------------------------------------
+# ESP32 SDK defaults for M25 wheel emulator firmware
+#
+# Set once here rather than in platformio.ini build_flags.
+# Using -D overrides in build_flags causes macro-redefinition warnings because
+# the build system generates sdkconfig.h from this file and both end up
+# defining the same symbol.  Keeping everything here avoids that conflict.
+#
+# After changing this file, run:  pio run --clean && pio run
+# ---------------------------------------------------------------------------
+
+# Bluetooth stack
+CONFIG_BT_ENABLED=y
+CONFIG_BT_CLASSIC_ENABLED=y
+CONFIG_BT_SPP_ENABLED=y
+CONFIG_BT_BLUEDROID_ENABLED=y
+CONFIG_BTDM_CTRL_MODE_BTDM=y
+CONFIG_BT_ACL_CONNECTIONS=4
+CONFIG_BT_BLE_ENABLED=y
+CONFIG_GATTC_MAX_CONNECTIONS=2
+
+# Log levels  (3=INFO, 4=DEBUG, 5=VERBOSE)
+CONFIG_LOG_DEFAULT_LEVEL=3
+CONFIG_LOG_MAXIMUM_LEVEL=5
+
+# FreeRTOS
+CONFIG_FREERTOS_MAX_TASK_NAME_LEN=16
+CONFIG_FREERTOS_TASK_NOTIFICATION_ARRAY_ENTRIES=1
+
+# Network
+CONFIG_LWIP_IPV6=y
