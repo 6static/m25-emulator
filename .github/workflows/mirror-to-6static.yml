@@ -3,6 +3,7 @@ name: Mirror to 6static
 on:
   push:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   mirror:
