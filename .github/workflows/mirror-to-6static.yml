@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Mirror push to 6static/m25-emulator
         run: |
-          git clone --mirror https://github.com/${{ github.repository }}.git repo.git
+          git clone --bare https://github.com/${{ github.repository }}.git repo.git
           cd repo.git
           git push --mirror https://x-access-token:${{ secrets.MIRROR_TOKEN }}@github.com/6static/m25-emulator.git
